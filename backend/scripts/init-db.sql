@@ -1,0 +1,25 @@
+
+CREATE DATABASE IF NOT EXISTS msme_helpline CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE msme_helpline;
+
+CREATE TABLE IF NOT EXISTS users (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  user_type VARCHAR(20) NOT NULL DEFAULT 'msme',
+  business_name VARCHAR(255) NOT NULL,
+  pan VARCHAR(10) NOT NULL,
+  gst VARCHAR(20) DEFAULT NULL,
+  mobile VARCHAR(15) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  password_hash VARCHAR(255) NOT NULL,
+  industry_type VARCHAR(50) NOT NULL,
+  address_line VARCHAR(500) NOT NULL,
+  city VARCHAR(100) NOT NULL,
+  state VARCHAR(100) NOT NULL,
+  pin_code VARCHAR(6) NOT NULL,
+  terms_accepted TINYINT(1) NOT NULL DEFAULT 1,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  UNIQUE KEY uk_email (email),
+  KEY idx_pan (pan),
+  KEY idx_mobile (mobile)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
