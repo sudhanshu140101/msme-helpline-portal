@@ -641,10 +641,7 @@
             ids.forEach(function(id) { clearFieldError(id); });
         }
 
-        /**
-         * Validates a single register form field. Returns error message or '' if valid.
-         * Uses same rules for both real-time (blur/input) and submit.
-         */
+        
         function validateRegisterField(fieldId) {
             var input = getRegisterInput(fieldId);
             var value = '';
