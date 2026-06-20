@@ -554,10 +554,7 @@
             return document.getElementById(id);
         }
 
-        /**
-         * Fetches City and State for a 6-digit Indian PIN code via api.postalpincode.in.
-         * Returns { city, state } or null on any failure. Production-safe: timeout, no throw.
-         */
+      
         function fetchPincodeDetails(pincode) {
             var digits = String(pincode).replace(/\D/g, '');
             if (digits.length !== 6) return Promise.resolve(null);
@@ -594,7 +591,7 @@
             el.className = 'text-sm mt-1 ' + (isError ? 'text-amber-700' : 'text-gray-600');
         }
 
-        // Auto-lookup PIN code whenever user enters a valid 6-digit PIN (on input or blur)
+     
         function onPincodeChange() {
             var pinInput = document.getElementById('pinCode');
             var cityInput = document.getElementById('city');
